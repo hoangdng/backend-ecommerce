@@ -26,15 +26,29 @@ namespace FruitsECommerceBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(); 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            // In production, the Vue files will be served from this directory
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "fruits-ecommerce-frontend/dist";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseStaticFiles();
+
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
+
             // Configure the HTTP request pipeline.
             if (env.IsDevelopment())
             {
@@ -47,11 +61,22 @@ namespace FruitsECommerceBackend
 
             app.UseRouting();
 
+            app.UseCors();
+             
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "fruits-ecommerce-frontend";
+                if (env.IsDevelopment())
+                {
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
+                }
             });
         }
     }
