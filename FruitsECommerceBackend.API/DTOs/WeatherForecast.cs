@@ -1,4 +1,4 @@
-namespace FruitsECommerceBackend
+namespace FruitsECommerceBackend.API.DTOs
 {
     public class WeatherForecast
     {

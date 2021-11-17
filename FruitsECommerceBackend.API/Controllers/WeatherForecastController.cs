@@ -1,6 +1,7 @@
+using FruitsECommerceBackend.API.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FruitsECommerceBackend.Controllers
+namespace FruitsECommerceBackend.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -8,8 +9,8 @@ namespace FruitsECommerceBackend.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 

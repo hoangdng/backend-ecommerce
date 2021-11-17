@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -45,5 +45,13 @@
 			</ResolvedFileToPublish>
 		</ItemGroup>
 	</Target>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FruitsECommerceBackend.API\FruitsECommerceBackend.API.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Extensions\" />
+	</ItemGroup>
 	
 </Project>
