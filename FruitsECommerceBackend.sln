@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsECommerceBackend", "FruitsECommerceBackend\FruitsECommerceBackend.csproj", "{D1F2EBD2-B769-4293-AC92-9513F1D34909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend", "FruitsECommerceBackend\FruitsECommerceBackend.csproj", "{D1F2EBD2-B769-4293-AC92-9513F1D34909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsECommerceBackend.API", "FruitsECommerceBackend.API\FruitsECommerceBackend.API.csproj", "{734B7583-772B-4234-B6DA-1E399B78DF84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.API", "FruitsECommerceBackend.API\FruitsECommerceBackend.API.csproj", "{734B7583-772B-4234-B6DA-1E399B78DF84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsECommerceBackend.Domain", "FruitsECommerceBackend.Domain\FruitsECommerceBackend.Domain.csproj", "{6CE27E83-D455-4AFE-8B5C-FE9373E38FC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.Domain", "FruitsECommerceBackend.Domain\FruitsECommerceBackend.Domain.csproj", "{6CE27E83-D455-4AFE-8B5C-FE9373E38FC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsECommerceBackend.Infrastructure", "FruitsECommerceBackend.Infrastructure\FruitsECommerceBackend.Infrastructure.csproj", "{D25426AC-EDF5-4DC0-82B4-67D9EBE7C0E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.Infrastructure", "FruitsECommerceBackend.Infrastructure\FruitsECommerceBackend.Infrastructure.csproj", "{D25426AC-EDF5-4DC0-82B4-67D9EBE7C0E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsECommerceBackend.Application", "FruitsECommerceBackend.Application\FruitsECommerceBackend.Application.csproj", "{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D25426AC-EDF5-4DC0-82B4-67D9EBE7C0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25426AC-EDF5-4DC0-82B4-67D9EBE7C0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25426AC-EDF5-4DC0-82B4-67D9EBE7C0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
