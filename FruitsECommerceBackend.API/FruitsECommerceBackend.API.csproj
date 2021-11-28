@@ -14,4 +14,8 @@
     <Folder Include="Resources\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FruitsECommerceBackend.Application\FruitsECommerceBackend.Application.csproj" />
+  </ItemGroup>
+
 </Project>
