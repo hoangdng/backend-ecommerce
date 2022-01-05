@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.Doma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.Infrastructure", "FruitsECommerceBackend.Infrastructure\FruitsECommerceBackend.Infrastructure.csproj", "{D25426AC-EDF5-4DC0-82B4-67D9EBE7C0E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsECommerceBackend.Application", "FruitsECommerceBackend.Application\FruitsECommerceBackend.Application.csproj", "{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.Application", "FruitsECommerceBackend.Application\FruitsECommerceBackend.Application.csproj", "{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsECommerceBackend.Tests.UnitTest", "tests\FruitsECommerceBackend.Tests.UnitTest\FruitsECommerceBackend.Tests.UnitTest.csproj", "{5C4A34C5-CF57-4B15-AD96-AC9910192E13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA72FB0E-0590-40A9-907B-02BA6D7BDD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4A34C5-CF57-4B15-AD96-AC9910192E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4A34C5-CF57-4B15-AD96-AC9910192E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4A34C5-CF57-4B15-AD96-AC9910192E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4A34C5-CF57-4B15-AD96-AC9910192E13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
