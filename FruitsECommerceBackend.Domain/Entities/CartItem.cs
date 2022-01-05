@@ -8,7 +8,9 @@
         #region navigation properties
 
         public int ProductId { get; set; }
-        public int SessionId { get; set; }
+        public virtual Product Product { get; set; }
+        public int ShoppingSessionId { get; set; }
+        public virtual ShoppingSession ShoppingSession { get; set; }
 
         #endregion
     }

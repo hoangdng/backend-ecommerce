@@ -17,8 +17,9 @@ namespace FruitsECommerceBackend.Domain.Entities
 
         #region navigation properties
 
+        public virtual Customer Customer { get; set; }
         public int CustomerId { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
 
         #endregion
     }

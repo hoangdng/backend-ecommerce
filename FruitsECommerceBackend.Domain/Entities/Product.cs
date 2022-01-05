@@ -5,6 +5,8 @@
         public Product()
         {
             Categories = new HashSet<Category>();
+            CartItems = new HashSet<CartItem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
         public int Id { get; set; }
@@ -15,7 +17,9 @@
 
         #region navigation properties
 
-        public ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
 
         #endregion 
     }

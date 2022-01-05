@@ -1,7 +1,6 @@
-﻿using FruitsECommerceBackend.Domain.Entities;
-using FruitsECommerceBackend.Domain.Shared;
+﻿using FruitsECommerceBackend.Domain.Shared;
 
-namespace FruitsECommerceBackend.Domain.Entites
+namespace FruitsECommerceBackend.Domain.Entities
 {
     public class Customer
     {
@@ -18,9 +17,10 @@ namespace FruitsECommerceBackend.Domain.Entites
         public MemberLevel Level { get; set; }
 
         #region navigation properties
-
-        public ICollection<DeliveryAddress> DeliveryAddresses { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public int ShoppingSessionId { get; set; }
+        public virtual ShoppingSession ShoppingSession { get; set; }
+        public virtual ICollection<DeliveryAddress> DeliveryAddresses { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
         #endregion
     }

@@ -1,11 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FruitsECommerceBackend.Infrastructure.Data.Seeding;
 
 namespace FruitsECommerceBackend
 {
@@ -13,7 +6,18 @@ namespace FruitsECommerceBackend
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                // get the instance of DbContext in our services layer.
+                var services = scope.ServiceProvider;
+
+                // TODO: Call the Seeder to seed sample data.
+                DBSeeder.Initialize(services);
+            }
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

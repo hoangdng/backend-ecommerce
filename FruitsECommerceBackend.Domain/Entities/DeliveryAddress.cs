@@ -12,6 +12,7 @@
 
         #region navigation properties
 
+        public virtual Customer Customer { get; set; }
         public int CustomerId { get; set; }
 
         #endregion

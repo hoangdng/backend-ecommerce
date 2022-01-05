@@ -14,8 +14,9 @@
         #region navigation properties
 
         public int CustomerId { get; set; }
+        public virtual Customer Customer { get; set; }
 
-        public ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
 
         #endregion 
     }
