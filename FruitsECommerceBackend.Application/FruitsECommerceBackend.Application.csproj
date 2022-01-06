@@ -1,15 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Automapper\" />
-    <Folder Include="Services\Implementations\" />
-    <Folder Include="Services\Interfaces\" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Automapper\" />
+		<Folder Include="Services\Implementations\" />
+		<Folder Include="Services\Interfaces\" />
+	</ItemGroup>
 
 </Project>
