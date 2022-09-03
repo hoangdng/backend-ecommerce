@@ -14,18 +14,17 @@ namespace FruitsECommerceBackend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting(o =>
+            {
+                o.LowercaseUrls = true;
+            });
+
             services.AddControllers();
-            services.AddCors(); 
+            services.AddCors();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-
-            // In production, the Vue files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "fruits-ecommerce-frontend/dist";
-            });
 
             // Add database context
             services.Configure<DbSettings>(Configuration.GetSection("DbSettings"));
@@ -55,21 +54,12 @@ namespace FruitsECommerceBackend
             app.UseRouting();
 
             app.UseCors();
-             
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "fruits-ecommerce-frontend";
-                if (env.IsDevelopment())
-                {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
-                }
             });
         }
     }

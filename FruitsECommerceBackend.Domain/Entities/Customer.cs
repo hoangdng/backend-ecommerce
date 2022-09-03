@@ -4,6 +4,9 @@ namespace FruitsECommerceBackend.Domain.Entities
 {
     public class Customer
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Customer()
         {
             DeliveryAddresses = new HashSet<DeliveryAddress>();

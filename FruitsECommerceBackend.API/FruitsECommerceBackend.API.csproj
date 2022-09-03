@@ -6,7 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503"/>
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
 	</ItemGroup>
 
@@ -16,6 +16,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\FruitsECommerceBackend.Application\FruitsECommerceBackend.Application.csproj" />
+		<ProjectReference Include="..\FruitsECommerceBackend.Domain\FruitsECommerceBackend.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

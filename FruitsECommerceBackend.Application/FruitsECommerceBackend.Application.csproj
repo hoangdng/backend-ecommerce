@@ -6,7 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503"/>
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -15,4 +15,8 @@
 		<Folder Include="Services\Interfaces\" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\FruitsECommerceBackend.Domain\FruitsECommerceBackend.Domain.csproj" />
+	</ItemGroup>
+	
 </Project>
