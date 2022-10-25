@@ -20,7 +20,7 @@ namespace FruitsECommerceBackend.Domain.Entities
         public MemberLevel Level { get; set; }
 
         #region navigation properties
-        public int ShoppingSessionId { get; set; }
+        public int? ShoppingSessionId { get; set; }
         public virtual ShoppingSession ShoppingSession { get; set; }
         public virtual ICollection<DeliveryAddress> DeliveryAddresses { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

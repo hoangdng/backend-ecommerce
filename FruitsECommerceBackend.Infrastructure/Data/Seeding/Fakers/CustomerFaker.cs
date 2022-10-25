@@ -20,8 +20,6 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Seeding.Fakers
             RuleFor(c => c.Email, f => f.Person.Email);
             RuleFor(c => c.Level, f => f.PickRandom<MemberLevel>());
             RuleFor(c => c.DeliveryAddresses, f => new DeliveryAddressFaker().GenerateBetween(1, 3));
-            //RuleFor(c => c.Orders, f => new OrderFaker().GenerateBetween(0, 10));
-            //RuleFor(c => c.ShoppingSession, f => new ShoppingSessionFaker().Generate());
         }
     }
 }

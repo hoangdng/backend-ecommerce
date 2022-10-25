@@ -1,45 +1,43 @@
+using FruitsECommerceBackend.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace FruitsECommerceBackend.API
 {
-    /// <summary>
-    /// Startup class.
-    /// </summary>
     public class Startup
     {
-        /// <summary>
-        /// Configuration property.
-        /// </summary>
-        private IConfiguration _configuration { get; }
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
-            _configuration = configuration;
+            Configuration = configuration;
         }
 
-        /// <summary>
-        /// This method gets called by the runtime. Use this method to add services to the container.
-        /// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        /// </summary>
-        /// <param name="services"></param>
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting(o =>
+            {
+                o.LowercaseUrls = true;
+            });
+
             services.AddControllers();
+            services.AddCors();
+
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+
+            // Add database context
+            services.Configure<DbSettings>(Configuration.GetSection("DbSettings"));
+            services.AddDbContext<ApplicationDbContext>();
         }
 
-        /// <summary>
-        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        /// </summary>
-        /// <param name="app"></param>
-        /// <param name="env"></param>
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -47,12 +45,24 @@ namespace FruitsECommerceBackend.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                options.RoutePrefix = string.Empty;
+            });
+
+            app.UseHttpsRedirection();
+
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { 
-                endpoints.MapControllers(); 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
             });
         }
     }

@@ -6,6 +6,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
 	</ItemGroup>
@@ -17,6 +21,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FruitsECommerceBackend.Application\FruitsECommerceBackend.Application.csproj" />
 		<ProjectReference Include="..\FruitsECommerceBackend.Domain\FruitsECommerceBackend.Domain.csproj" />
+		<ProjectReference Include="..\FruitsECommerceBackend.Infrastructure\FruitsECommerceBackend.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>

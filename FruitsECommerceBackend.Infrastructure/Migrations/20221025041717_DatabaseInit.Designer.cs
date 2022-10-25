@@ -9,18 +9,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
+namespace FruitsECommerceBackend.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220105084649_DatabaseInitialization")]
-    partial class DatabaseInitialization
+    [Migration("20221025041717_DatabaseInit")]
+    partial class DatabaseInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("FruitsECommerce")
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -60,7 +60,6 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(1023)
                         .HasColumnType("varchar(1023)");
 
@@ -83,7 +82,6 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
@@ -93,28 +91,29 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("ShoppingSessionId")
+                    b.Property<int?>("ShoppingSessionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Email] IS NOT NULL");
 
                     b.HasIndex("ShoppingSessionId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ShoppingSessionId] IS NOT NULL");
 
                     b.HasIndex("Username")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Username] IS NOT NULL");
 
                     b.ToTable("Customers", "FruitsECommerce");
                 });
@@ -316,9 +315,7 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                 {
                     b.HasOne("FruitsECommerceBackend.Domain.Entities.ShoppingSession", "ShoppingSession")
                         .WithOne("Customer")
-                        .HasForeignKey("FruitsECommerceBackend.Domain.Entities.Customer", "ShoppingSessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FruitsECommerceBackend.Domain.Entities.Customer", "ShoppingSessionId");
 
                     b.Navigation("ShoppingSession");
                 });
@@ -404,8 +401,7 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                 {
                     b.Navigation("CartItems");
 
-                    b.Navigation("Customer")
-                        .IsRequired();
+                    b.Navigation("Customer");
                 });
 #pragma warning restore 612, 618
         }

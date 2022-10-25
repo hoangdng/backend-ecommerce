@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
+namespace FruitsECommerceBackend.Infrastructure.Migrations
 {
-    public partial class DatabaseInitialization : Migration
+    public partial class DatabaseInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,7 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    Description = table.Column<string>(type: "varchar(1023)", maxLength: 1023, nullable: false)
+                    Description = table.Column<string>(type: "varchar(1023)", maxLength: 1023, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -124,11 +124,11 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    Name = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    Email = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    Username = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    Name = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    Email = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
                     Level = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
-                    ShoppingSessionId = table.Column<int>(type: "int", nullable: false)
+                    ShoppingSessionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -138,8 +138,7 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                         column: x => x.ShoppingSessionId,
                         principalSchema: "FruitsECommerce",
                         principalTable: "ShoppingSessions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -241,21 +240,24 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Migrations
                 schema: "FruitsECommerce",
                 table: "Customers",
                 column: "Email",
-                unique: true);
+                unique: true,
+                filter: "[Email] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_ShoppingSessionId",
                 schema: "FruitsECommerce",
                 table: "Customers",
                 column: "ShoppingSessionId",
-                unique: true);
+                unique: true,
+                filter: "[ShoppingSessionId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_Username",
                 schema: "FruitsECommerce",
                 table: "Customers",
                 column: "Username",
-                unique: true);
+                unique: true,
+                filter: "[Username] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DeliveryAddresses_CustomerId",

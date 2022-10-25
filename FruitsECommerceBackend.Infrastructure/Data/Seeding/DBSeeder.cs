@@ -3,9 +3,6 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 using FruitsECommerceBackend.Infrastructure.Data.Seeding.Fakers;
 using FruitsECommerceBackend.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FruitsECommerceBackend.Infrastructure.Data.Seeding
 {
@@ -36,7 +33,9 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Seeding
         private static void Seed(ApplicationDbContext context)
         {
             if (context == null)
+            {
                 return;
+            }
 
             // Create database if it does not already exist.
             // Run Database Migration when Database ProviderName is not InMemory.
@@ -55,10 +54,14 @@ namespace FruitsECommerceBackend.Infrastructure.Data.Seeding
             {
                 const int NUMBER_OF_RECORDS = 10;
 
-                CustomerFaker customerFaker = new CustomerFaker("vi");
+                CustomerFaker customerFaker = new("vi");
                 List<Customer> listFakeCustomers = customerFaker.Generate(NUMBER_OF_RECORDS);
-
                 context.Customers.AddRange(listFakeCustomers);
+
+                ProductFaker productFaker = new();
+                List<Product> listFakeProducts = productFaker.Generate(NUMBER_OF_RECORDS);
+                context.Products.AddRange(listFakeProducts);
+
                 context.SaveChanges();
             }
         }
